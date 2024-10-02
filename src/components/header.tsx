@@ -1,13 +1,10 @@
-import { Link, Router, Route, Routes, BrowserRouter } from "react-router-dom"
-import WelcomeComponent from "./welcome/welcomeComponent"
-import PokemonList from "./pokemonList/pokemonList"
-import PokemonDetailsPage from "../pages/pokemonDetailsPage"
+import { Link} from "react-router-dom"
 
 
 const HeaderComponent = () => {
 
     return (
-        <BrowserRouter>
+        <div>
             <nav className="w-full py-10 bg-dark-brown flex items-center" >
                 <Link to={'/'} className="w-full flex justify-center">
                     <div className="">
@@ -24,16 +21,7 @@ const HeaderComponent = () => {
                     </Link>
                 </div>
             </nav>
-
-            <Routes>
-
-                <Route path='/' element={<WelcomeComponent></WelcomeComponent>}></Route>
-                <Route path='/pokemons' element={<PokemonList></PokemonList>}></Route>
-                <Route path='/pokemon/:name' element={<PokemonDetailsPage></PokemonDetailsPage>}></Route>
-
-            </Routes>
-
-        </BrowserRouter>
+        </div>
     )
 }
 
