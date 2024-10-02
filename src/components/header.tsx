@@ -1,6 +1,7 @@
 import { Link, Router, Route, Routes, BrowserRouter } from "react-router-dom"
 import WelcomeComponent from "./welcome/welcomeComponent"
 import PokemonList from "./pokemonList/pokemonList"
+import PokemonDetailsPage from "../pages/pokemonDetailsPage"
 
 
 const HeaderComponent = () => {
@@ -21,11 +22,6 @@ const HeaderComponent = () => {
                             className="font-bold text-light-brown text-lg hover:bg-white-brown 
                                 py-2 px-6 rounded-2xl font-press-start">Pokemones</a>
                     </Link>
-
-                    <Link to={'/cards'}>
-                        <a href="" className="font-bold text-light-brown text-lg hover:bg-white-brown 
-                        py-2 px-6 rounded-2xl font-press-start">Cartas</a>
-                    </Link>
                 </div>
             </nav>
 
@@ -33,6 +29,7 @@ const HeaderComponent = () => {
 
                 <Route path='/' element={<WelcomeComponent></WelcomeComponent>}></Route>
                 <Route path='/pokemons' element={<PokemonList></PokemonList>}></Route>
+                <Route path='/pokemon/:name' element={<PokemonDetailsPage></PokemonDetailsPage>}></Route>
 
             </Routes>
 
