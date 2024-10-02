@@ -1,12 +1,9 @@
-
+import axios from "axios"
 import { useEffect, useState } from "react"
 import { getDetailsPokemonTypeAndUrl } from "../../services/pokemon.service"
+import Pagination from "./pagination"
 import { useNavigate } from "react-router-dom"
-//PAGINATION
 import { Pokemon } from "./interface/pokemon.info"
-import axios from "axios"
-
-//SEARCH COMPONENT
 
 
 const PokemonList = () => {
@@ -101,7 +98,6 @@ const PokemonList = () => {
                                 duration-300 ease-in-out"
                                 pokemon-name={pokemon.name} 
                                 key={pokemon.name}
-                                // onClick={redirectToDetails}
                             > 
                                 <div>
                                     <img
@@ -127,6 +123,14 @@ const PokemonList = () => {
                     <br></br><span>Intenta de nuevo</span></p>)     
                 }  
              </section>
+            {
+                totalPages > 1 ?
+                    <Pagination
+                        totalPages={totalPages}
+                        currentPage={currentPage}
+                        onPageChange={handlePageChange}/>     
+                    : null
+            }
         </div>
     )
 }
