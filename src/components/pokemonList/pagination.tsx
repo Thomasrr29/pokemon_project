@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 interface Pagination {
     totalPages: number,
     currentPage: number,

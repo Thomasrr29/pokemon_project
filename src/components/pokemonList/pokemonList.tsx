@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { getDetailsPokemonTypeAndUrl } from "../../services/pokemon.service"
 import Pagination from "./pagination"
 import { useNavigate } from "react-router-dom"
-import { Pokemon } from "./interface/pokemon.info"
+import { Pokemon } from "../../interface/pokemons.info.interface"
 
 
 const PokemonList = () => {
@@ -106,12 +106,12 @@ const PokemonList = () => {
                                     src={pokemon.img} alt="" />
                                 </div>
                                 <div className="my-4 mx-4">
-                                    <p className="text-2xl font-bold text-white-brown">{pokemon.name}</p>
+                                    <p className="text-2xl font-nanum text-white-brown">{pokemon.name}</p>
                                     <div className="flex gap-4 items-center py-4">
                                     {
                                         pokemon.types.map(type => (
                                             <p key={type}
-                                            className="bg-medium-brown py-1 px-4 rounded-xl text-white-brown font-bold">
+                                            className="bg-medium-brown py-1 px-4 rounded-xl text-white-brown font-nanum">
                                                 {type}
                                             </p>
                                         ))
@@ -120,7 +120,7 @@ const PokemonList = () => {
                                 </div>
                             </div>
                     ))) 
-                    : (<p className="text-4xl font-bold text-gray-700">No hay Pokemones disponibles 
+                    : (<p className="text-4xl font-nanum text-gray-700">No hay Pokemones disponibles 
                     <br></br><span>Intenta de nuevo</span></p>)     
                 }  
              </section>

@@ -1,9 +1,8 @@
 import axios from "axios"
 import { useEffect, useRef, useState } from "react"
-import { PokemonEvolutions } from "./interface/pokemon.interface"
+import { PokemonEvolutions } from "../../interface/pokemon.interface"
 
-
-const EvolutionPokemonComponent: React.FC<{urlChain: string, onMajorEvolutionChange: (evolution: string) => void}> = ({urlChain, onMajorEvolutionChange}) => {
+const EvolutionPokemonComponent = ({urlChain, onMajorEvolutionChange}: {urlChain: string, onMajorEvolutionChange: (evolution: string) => void}) => {
 
 
     let evolutions: PokemonEvolutions[] = []
@@ -88,16 +87,16 @@ const EvolutionPokemonComponent: React.FC<{urlChain: string, onMajorEvolutionCha
                     evolutionsPokemons.map((evolution) => (
                         <div key={evolution.name} className="rounded py-6 px-4 bg-light-brown w-1/4 h-full hover:bg-white-brown cursor-pointer">
                             <p className="font-press-start text-2xl py-6">{evolution.name.toUpperCase()}</p>
-                            <label htmlFor="" className="font-bold text-2xl">Habitat: </label>
-                            <p>{evolution.habitat}</p>
-                            <label htmlFor="" className="font-bold text-2xl">Generación: </label>
-                            <p>{evolution.generation}</p>
-                            <label htmlFor="" className="font-bold text-2xl">Diferencias genero: </label>
-                            <p>{evolution.gender_diferences.toString()}</p>
-                            <label htmlFor="" className="font-bold text-2xl">Mitico: </label>
-                            <p>{evolution.mythical.toString()}</p>
-                            <label htmlFor="" className="font-bold text-2xl">Legendario: </label>
-                            <p>{evolution.legendary.toString()}</p>
+                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Habitat: </label>
+                            <p className="font-nanum font-semibold">{evolution.habitat}</p>
+                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Generación: </label>
+                            <p className="font-nanum font-semibold">{evolution.generation}</p>
+                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Diferencias genero: </label>
+                            <p className="font-nanum font-semibold">{evolution.gender_diferences.toString()}</p>
+                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Mitico: </label>
+                            <p className="font-nanum font-semibold">{evolution.mythical.toString()}</p>
+                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Legendario: </label>
+                            <p className="font-nanum font-semibold" >{evolution.legendary.toString()}</p>
                         </div>
                     ))
                 }

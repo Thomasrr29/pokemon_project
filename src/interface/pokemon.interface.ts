@@ -1,6 +1,3 @@
-export interface pokemonEvolutionDto {
-
-}
 
 export interface PokemonEvolutions {
     name: string,
@@ -12,20 +9,24 @@ export interface PokemonEvolutions {
 }
 
 
+export interface ImagePokemon {
+    images: string[] | undefined
+}
 
-export interface infoPokemon {
+
+
+export interface InfoPokemon {
     types: string[],
     weight: number,
     height: number 
 }
 
 
-export interface pokemonDetailsDto {
+export interface PokemonDetailsDto {
     name: string,
     images: string[],
     types: string[],
     weight: number,
     height: number
     specie: any,
-
 } 

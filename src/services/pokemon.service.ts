@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { pokemonDetailsDto } from '../components/pokemonDetails/interface/pokemon.interface'
+import { PokemonDetailsDto } from '../interface/pokemon.interface'
 
 export const getDetailsPokemonTypeAndUrl = async (url: string) => {
 
@@ -19,7 +19,7 @@ export const getDetailsPokemonTypeAndUrl = async (url: string) => {
     
 }
 
-export const getDetailsPokemon = async (url: string): Promise<pokemonDetailsDto> => {
+export const getDetailsPokemon = async (url: string): Promise<PokemonDetailsDto> => {
 
     const detailsPokemon = await axios.get(url)
 
