@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
+.pokemon-card {
+  position: relative;
+  width: 400px; 
+  min-height: 400px; 
+  background-color: #d97706; 
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  animation: float 3s ease-in-out infinite;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.pokemon-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.float-animation {
+  animation: float 3s ease-in-out infinite;
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(-45deg); }
+  100% { transform: translateX(100%) rotate(-45deg); }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.shine-effect {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: linear-gradient(90deg, rgba(253, 253, 253, 0) 0%, rgba(255, 255, 255, 0.144) 50%, rgba(255,255,255,0) 100%);
+  animation: shine 3s infinite;
 }

@@ -1,12 +1,12 @@
 import axios from "axios"
 import { useEffect, useRef, useState } from "react";
-import { cardEvolutionMajor } from "./interface/cardEvolution";
+import { cardEvolutionMajor } from "../../interface/cardEvolution";
 
 interface evolution {
     evolution: string
 }
 
-const EvolutionCardsComponent: React.FC<evolution> = ({evolution}) => {
+const EvolutionCardsComponent  = ({evolution}: evolution) => {
 
     const [isLoading, setIsLoading] = useState(true)
     const [cardsEvolution, setCardsEvolution] = useState<cardEvolutionMajor[]>([])
@@ -89,9 +89,9 @@ const EvolutionCardsComponent: React.FC<evolution> = ({evolution}) => {
                             <div className="shine-effect"></div>
                             <div className="grid grid-cols-[70%_10%] my-4">
                                 <p className="px-10 font-semibold 
-                                font-press-start text1xl hide-text w-full mx-0 text-white-brown">{card.name}</p>
+                                font-press-start text1xl w-full mx-0 text-white-brown">{card.name}</p>
                                 <p className="font-semibold 
-                                font-press-start text-1xl hide-text w-full mx-0 text-gray-900">{card.number}</p>
+                                font-press-start text-1xl w-full mx-0 text-dark-brown">{card.number}</p>
                             </div>
                             <section className="flex justify-center items-center">
                                 <div>
@@ -102,14 +102,16 @@ const EvolutionCardsComponent: React.FC<evolution> = ({evolution}) => {
                             </section>
                             <section className="flex justify-around my-4">
                                 <div>
-                                    <label htmlFor="" className="font-bold hide-text text-white-brown">Supertipo: </label>
-                                    <p className="hide-text text-gray-900 ">{card.supertype}</p>
+                                    <label htmlFor="" className="font-bold font-nanum hide-text 
+                                    text-white-brown">Supertipo: </label>
+                                    <p className=" text-dark-brown font-nanum font-semibold">{card.supertype}</p>
                                 </div>
                                 <div>
-                                    <label htmlFor="" className="font-bold hide-text text-white-brown">Tipo: </label>
+                                    <label htmlFor="" className="font-bold font-nanum hide-text 
+                                    text-white-brown"> Tipo: </label>
                                     {
                                         card.types.map((type) => (
-                                            <p className="hide-text text-gray-900 ">{type}</p>
+                                            <p className=" text-dark-brown font-nanum font-semibold">{type}</p>
                                         ))
                                     }
                                 </div>

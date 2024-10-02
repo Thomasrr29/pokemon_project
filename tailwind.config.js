@@ -13,7 +13,7 @@ export default {
       },
       fontFamily: {
         'press-start': ['"Press Start 2P"', 'cursive'],
-        'roboto': ['Roboto', 'sans-serif'],
+        'nanum': ['Nanum Gothic', 'sans-serif']
       }
     },
   },

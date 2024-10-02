@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getDetailsPokemon } from "../services/pokemon.service"
-import { pokemonDetailsDto } from "../components/pokemonDetails/interface/pokemon.interface"
+import { PokemonDetailsDto } from "../interface/pokemon.interface"
 import ImagePokemonComponent from "../components/pokemonDetails/imagePokemon"
 import GeneralInfoPokemonComponent from "../components/pokemonDetails/infoGeneral"
 import EvolutionPokemonComponent from "../components/pokemonDetails/evolutionComponent"
@@ -16,7 +16,7 @@ const PokemonDetailsPage = () => {
 
     const [majorEvolution, setMajorEvolution] = useState<string>('')
     const [isLoading, setIsLoading] = useState(true)
-    const [pokemonInfo, setPokemonInfo] = useState<pokemonDetailsDto | null>(null)
+    const [pokemonInfo, setPokemonInfo] = useState<PokemonDetailsDto | null>(null)
     const [error, setError] = useState<string | null>(null)
 
 

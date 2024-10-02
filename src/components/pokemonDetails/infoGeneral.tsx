@@ -1,7 +1,6 @@
-import { infoPokemon } from "./interface/pokemon.interface"
+import { InfoPokemon } from "../../interface/pokemon.interface"
 
-
-const GeneralInfoPokemonComponent: React.FC<infoPokemon> = (infoPokemon) => {
+const GeneralInfoPokemonComponent = (infoPokemon: InfoPokemon) => {
     
     const {types, weight, height} = infoPokemon
 
@@ -15,8 +14,8 @@ const GeneralInfoPokemonComponent: React.FC<infoPokemon> = (infoPokemon) => {
                             types.map((type) => (
                                 <p
                                 key={type} 
-                                className="font-press-start text-1xl 
-                                rounded-xl text-dark-brown
+                                className="font-nanum text-2xl 
+                                rounded-xl text-dark-brown font-bold
                                 ">{type}</p>
                             ))
                         }
@@ -26,8 +25,8 @@ const GeneralInfoPokemonComponent: React.FC<infoPokemon> = (infoPokemon) => {
                     <p className="font-press-start text-1xl font-bold my-4">Weight: </p>
                     <div className="flex justify-center items-center">
                         {
-                            <p className="font-press-start text-1xl 
-                            text-dark-brown">{weight}</p>
+                            <p className="font-nanum text-2xl 
+                            text-dark-brown font-bold">{weight}</p>
                         }
                     </div>
                 </div>
@@ -35,8 +34,8 @@ const GeneralInfoPokemonComponent: React.FC<infoPokemon> = (infoPokemon) => {
                     <p className="font-press-start text-1xl font-bold my-4 ">Height: </p>
                     <div className="flex justify-center items-center">
                         {
-                            <p className="font-press-start text-1xl 
-                            text-dark-brown">{height}</p>
+                            <p className="font-nanum text-2xl
+                            text-dark-brown font-bold">{height}</p>
                         }
                     </div>
                 </div> 

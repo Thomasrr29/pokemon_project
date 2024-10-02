@@ -1,11 +1,8 @@
+import { ImagePokemon } from "../../interface/pokemon.interface"
 
 
-interface imagePokemon {
-    images: string[] | undefined
-}
 
-
-const ImagePokemonComponent: React.FC<imagePokemon> = ({images}) => {
+const ImagePokemonComponent = ({images}: ImagePokemon) => {
     return (
         <div>
             {
