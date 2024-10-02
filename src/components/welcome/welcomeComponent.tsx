@@ -1,6 +1,5 @@
 import React from "react"
 
-
 const  WelcomeComponent: React.FC = () => {
 
     return (
