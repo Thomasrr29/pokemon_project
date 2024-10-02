@@ -1,4 +1,5 @@
 import './App.css';
+import HeaderComponent from './components/header';
 import PokemonList from './components/pokemonList/pokemonList';
 
 
@@ -7,7 +8,7 @@ function App() {
   return (
 
     <div>
-      <PokemonList></PokemonList>
+      <HeaderComponent></HeaderComponent>
     </div>
 
   );
