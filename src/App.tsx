@@ -1,6 +1,6 @@
+import { Outlet } from 'react-router-dom';
 import './App.css';
 import HeaderComponent from './components/header';
-import PokemonList from './components/pokemonList/pokemonList';
 
 
 
@@ -9,6 +9,7 @@ function App() {
 
     <div>
       <HeaderComponent></HeaderComponent>
+      <Outlet></Outlet>
     </div>
 
   );

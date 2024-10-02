@@ -1,6 +1,6 @@
 import { Link, Router, Route, Routes, BrowserRouter } from "react-router-dom"
-import PokemonList from "./pokemonList/pokemonList"
 import WelcomeComponent from "./welcome/welcomeComponent"
+import PokemonList from "./pokemonList/pokemonList"
 
 
 const HeaderComponent = () => {

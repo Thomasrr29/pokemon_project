@@ -63,19 +63,19 @@ const PokemonList = () => {
         }
     }
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
-    // const redirectToDetails = async (event: React.MouseEvent<HTMLElement>) => {
+    const redirectToDetails = async (event: React.MouseEvent<HTMLElement>) => {
 
-    //     const name = event.currentTarget.getAttribute('pokemon-name')
+        const name = event.currentTarget.getAttribute('pokemon-name')
 
-    //     if(name){
-    //         navigate(`/pokemon/${name}`)
-    //     } else {
-    //         console.error(`THE POKEMON NAME WASN'T SEND`)
-    //     }
+        if(name){
+            navigate(`/pokemon/${name}`)
+        } else {
+            console.error(`THE POKEMON NAME WASN'T SEND`)
+        }
 
-    // }
+    }
 
     const handlePageChange = (newPage: number) => {
         setCurrentPage(newPage)
@@ -98,6 +98,7 @@ const PokemonList = () => {
                                 duration-300 ease-in-out"
                                 pokemon-name={pokemon.name} 
                                 key={pokemon.name}
+                                onClick={redirectToDetails}
                             > 
                                 <div>
                                     <img
