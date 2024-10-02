@@ -89,8 +89,8 @@ const PokemonList = () => {
 
 
     return (
-        <div className="w-full"> 
-                <section className="w-100 grid grid-cols-3 bg-light-brown gap-y-10 px-40 py-20">
+        <div> 
+                <section className="w-full grid grid-cols-1 px-10 py-6 bg-light-brown gap-y-10 md:grid-cols-2 md:py-10 lg:grid-cols-3 lg:py-20 place-items-center">
                 { pokemonData?
                     (pokemonData.map(pokemon => (
                             <div className="flex flex-col bg-dark-brown rounded-xl w-80 px-6 py-4 

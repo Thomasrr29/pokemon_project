@@ -75,53 +75,50 @@ const EvolutionCardsComponent  = ({evolution}: evolution) => {
     }
 
     return (
-        <div className="py-20 ">
-            <div>
-                <h3 className="font-bold text-4xl font-press-start">Cartas</h3>
+        <div className="py-10 md:py-20 px-4 md:px-10">
+            <div className="mb-8 text-center">
+                <h3 className="font-bold text-2xl md:text-3xl lg:text-4xl font-press-start">Cartas</h3>
             </div>
-            <div className="grid grid-cols-3 gap-20 w-90 px-20 py-24 cursor-pointer">
-
-                {
-                    cardsEvolution.map((card) => (
-                        <div key={card.id} 
-                        className="bg-light-brown rounded py-4 px-6 pokemon-card 
-                        float-animation w-full">
-                            <div className="shine-effect"></div>
-                            <div className="grid grid-cols-[70%_10%] my-4">
-                                <p className="px-10 font-semibold 
-                                font-press-start text1xl w-full mx-0 text-white-brown">{card.name}</p>
-                                <p className="font-semibold 
-                                font-press-start text-1xl w-full mx-0 text-dark-brown">{card.number}</p>
-                            </div>
-                            <section className="flex justify-center items-center">
-                                <div>
-                                    <img src={card.images.large} alt={card.name}
-                                    className="w-80 object-cover transition-trasform duration-300
-                                    hover:scale-110 hover:my-4" />
-                                </div>
-                            </section>
-                            <section className="flex justify-around my-4">
-                                <div>
-                                    <label htmlFor="" className="font-bold font-nanum hide-text 
-                                    text-white-brown">Supertipo: </label>
-                                    <p className=" text-dark-brown font-nanum font-semibold">{card.supertype}</p>
-                                </div>
-                                <div>
-                                    <label htmlFor="" className="font-bold font-nanum hide-text 
-                                    text-white-brown"> Tipo: </label>
-                                    {
-                                        card.types.map((type) => (
-                                            <p className=" text-dark-brown font-nanum font-semibold">{type}</p>
-                                        ))
-                                    }
-                                </div>
-                                
-                            </section>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-20">
+                {cardsEvolution.map((card) => (
+                    <div key={card.id} 
+                        className="bg-light-brown rounded py-4 px-4 md:px-6 pokemon-card 
+                                float-animation w-full cursor-pointer">
+                        <div className="shine-effect"></div>
+                        <div className="grid grid-cols-[60%_30%] my-2 md:my-4">
+                            <p className="px-2 md:px-4 font-semibold 
+                                        font-press-start text-sm md:text-base lg:text-lg 
+                                        w-full mx-0 text-white-brown truncate">{card.name}</p>
+                            <p className="font-semibold text-right
+                                        font-press-start text-sm md:text-base lg:text-lg 
+                                        w-full mx-0 text-dark-brown">{card.number}</p>
                         </div>
-                    ))
-                }
+                        <section className="flex justify-center items-center">
+                            <div className="w-full max-w-xs md:max-w-sm lg:max-w-md">
+                                <img src={card.images.large} alt={card.name}
+                                    className="w-full h-auto object-cover transition-transform duration-300
+                                                hover:scale-105 hover:my-2" />
+                            </div>
+                        </section>
+                        <section className="flex flex-col sm:flex-row justify-around my-4 space-y-2 sm:space-y-0">
+                            <div className="text-center sm:text-left">
+                                <label className="font-bold font-nanum text-sm md:text-base 
+                                                text-white-brown block sm:inline">Supertipo: </label>
+                                <p className="text-dark-brown font-nanum font-semibold 
+                                            text-sm md:text-base">{card.supertype}</p>
+                            </div>
+                            <div className="text-center sm:text-left">
+                                <label className="font-bold font-nanum text-sm md:text-base 
+                                                text-white-brown block sm:inline">Tipo: </label>
+                                {card.types.map((type, index) => (
+                                    <p key={index} className="text-dark-brown font-nanum font-semibold 
+                                                            text-sm md:text-base">{type}</p>
+                                ))}
+                            </div>
+                        </section>
+                    </div>
+                ))}
             </div>
-
         </div>
     )
 }
