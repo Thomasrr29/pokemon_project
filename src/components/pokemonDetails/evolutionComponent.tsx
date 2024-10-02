@@ -80,27 +80,40 @@ const EvolutionPokemonComponent = ({urlChain, onMajorEvolutionChange}: {urlChain
        
     return (
 
-        <div className="bg-medium-brown py-20">
-            <p className="text-4xl font-bold font-press-start">Evoluciones: </p>
-            <div className="flex justify-center gap-10 py-10">
-                {
-                    evolutionsPokemons.map((evolution) => (
-                        <div key={evolution.name} className="rounded py-6 px-4 bg-light-brown w-1/4 h-full hover:bg-white-brown cursor-pointer">
-                            <p className="font-press-start text-2xl py-6">{evolution.name.toUpperCase()}</p>
-                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Habitat: </label>
-                            <p className="font-nanum font-semibold">{evolution.habitat}</p>
-                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Generación: </label>
-                            <p className="font-nanum font-semibold">{evolution.generation}</p>
-                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Diferencias genero: </label>
-                            <p className="font-nanum font-semibold">{evolution.gender_diferences.toString()}</p>
-                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Mitico: </label>
-                            <p className="font-nanum font-semibold">{evolution.mythical.toString()}</p>
-                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Legendario: </label>
-                            <p className="font-nanum font-semibold" >{evolution.legendary.toString()}</p>
+        <div className="bg-medium-brown py-10 md:py-20 px-4 md:px-8">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-bold font-press-start text-center mb-6 md:mb-10">Evoluciones: </p>
+            <div className="flex flex-col md:flex-row md:flex-wrap justify-center gap-6 md:gap-8 lg:gap-10">
+                {evolutionsPokemons.map((evolution) => (
+                    <div key={evolution.name} 
+                        className="rounded py-4 md:py-6 px-4 bg-light-brown w-full md:w-2/5 lg:w-1/4 
+                                    hover:bg-white-brown cursor-pointer transition duration-300 ease-in-out">
+                        <p className="font-press-start text-lg md:text-xl lg:text-2xl py-3 md:py-4 text-center">
+                            {evolution.name.toUpperCase()}
+                        </p>
+                        <div className="space-y-2 md:space-y-3">
+                            <div>
+                                <label className="font-nanum text-lg md:text-xl font-bold text-dark-brown block">Habitat: </label>
+                                <p className="font-nanum font-semibold">{evolution.habitat}</p>
+                            </div>
+                            <div>
+                                <label className="font-nanum text-lg md:text-xl font-bold text-dark-brown block">Generación: </label>
+                                <p className="font-nanum font-semibold">{evolution.generation}</p>
+                            </div>
+                            <div>
+                                <label className="font-nanum text-lg md:text-xl font-bold text-dark-brown block">Diferencias género: </label>
+                                <p className="font-nanum font-semibold">{evolution.gender_diferences.toString()}</p>
+                            </div>
+                            <div>
+                                <label className="font-nanum text-lg md:text-xl font-bold text-dark-brown block">Mítico: </label>
+                                <p className="font-nanum font-semibold">{evolution.mythical.toString()}</p>
+                            </div>
+                            <div>
+                                <label className="font-nanum text-lg md:text-xl font-bold text-dark-brown block">Legendario: </label>
+                                <p className="font-nanum font-semibold">{evolution.legendary.toString()}</p>
+                            </div>
                         </div>
-                    ))
-                }
-
+                    </div>
+                ))}
             </div>
         </div>
         

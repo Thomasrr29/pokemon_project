@@ -13,7 +13,7 @@ const HeaderComponent = () => {
                     </div>
                 </Link>
 
-                <div className="flex px-60 gap-10">
+                <div className="flex gap-10">
                     <Link to={'/pokemons'}>
                         <a href=""
                             className="font-bold text-light-brown text-lg hover:bg-white-brown 
