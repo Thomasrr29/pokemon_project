@@ -1,46 +1,64 @@
-# Getting Started with Create React App
+## Requisitos Previos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Antes de comenzar, asegúrate de tener instalado:
 
-## Available Scripts
+1. Node.js (versión 14.0 o superior)
+2. npm (normalmente viene con Node.js)
+3. Git (opcional, pero recomendado para clonar el repositorio)
 
-In the project directory, you can run:
+## Pasos para Iniciar el Proyecto
 
-### `npm start`
+### 1. Clonar el Repositorio (si aplica)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Si el proyecto está en un repositorio Git, clónalo usando:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
 
-### `npm test`
+git clone https://github.com/Thomasrr29/pokemon_project.git
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
 
-### `npm run build`
+### 2. Instalar Dependencias
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Navega al directorio del proyecto y ejecuta:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+cd pokemon_project
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
 
-### `npm run eject`
+Esto instalará todas las dependencias necesarias listadas en el archivo `package.json`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 3. Iniciar el Servidor de Desarrollo
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Para iniciar la aplicación en modo de desarrollo, ejecuta:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+Copy
+npm start
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
 
-## Learn More
+Esto iniciará el servidor de desarrollo. La aplicación debería abrirse automáticamente en tu navegador predeterminado. Si no es así, abre manualmente [http://localhost:3000](http://localhost:3000/).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 5. Compilar para Producción (opcional)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Si necesitas crear una versión de producción, ejecuta:
+
+```
+Copy
+npm run build
+
+```
+
+Esto creará una versión optimizada de la aplicación en el directorio `build/`.
+
+<aside>
+⚡
+
+**LINK PROYECTO DESPLEGADO:** 
+
+https://pokemon-project-99xou0cfv-thomas-projects-f6a91d8b.vercel.app/pokemon/persian
+
+</aside>
