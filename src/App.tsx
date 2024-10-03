@@ -2,8 +2,8 @@ import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import './App.css';
 import HeaderComponent from './components/header/header';
 import PokemonDetailsPage from './pages/pokemonDetailsPage';
-import PokemonList from './components/pokemonList/pokemonList';
 import WelcomeComponent from './components/welcome/welcomeComponent';
+import PokemonsListPage from './pages/pokemonsPage';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Routes>
 
         <Route path='/' element={<WelcomeComponent></WelcomeComponent>}></Route>
-        <Route path='/pokemons' element={<PokemonList></PokemonList>}></Route>
+        <Route path='/pokemons' element={<PokemonsListPage></PokemonsListPage>}></Route>
         <Route path='/pokemon/:name' element={<PokemonDetailsPage></PokemonDetailsPage>}></Route>
 
       </Routes>
