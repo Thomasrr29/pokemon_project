@@ -7,6 +7,9 @@ const ThemeComponent = () => {
 
     useEffect(() => {
 
+
+        /*Añadir la clase HTML para usar las clases oscuras asignadas usando la herramientas 
+        de clases de tailwiind (:dark)*/
         if(theme === 'dark'){
             document.documentElement.classList.add('dark')
         } else {
@@ -21,6 +24,7 @@ const ThemeComponent = () => {
     }
 
     useEffect(() => {
+        /*Asignamos el Atributo para tener un manejo global del tema actual */
         document.documentElement.setAttribute('theme', theme)
     }, [theme])
 

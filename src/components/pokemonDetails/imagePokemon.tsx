@@ -3,6 +3,8 @@ import { ImagePokemon } from "../../interface/pokemon.interface"
 
 
 const ImagePokemonComponent = ({images}: ImagePokemon) => {
+
+    /*Mostrar todas las imagenes recibidas del Pokemon en la parte superior del formato detalle del Pokemon */
     return (
         <div>
             {
