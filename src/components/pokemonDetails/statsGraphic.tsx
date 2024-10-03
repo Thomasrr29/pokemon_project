@@ -1,12 +1,4 @@
-
-interface Stat {
-    base_stat: number,
-    stat: {
-        name: string,
-        url: string
-    }
-}
-
+import { Stat } from "../../interface/statInterface"
 
 const StatsGraphicsComponent = ({stats}: {stats: any}) => {
 

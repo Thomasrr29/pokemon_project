@@ -1,10 +1,7 @@
-interface Pagination {
-    totalPages: number,
-    currentPage: number,
-    onPageChange: (newNumber: number) => void; 
-}
+import { PaginationDto } from "../../interface/paginationInterface"
 
-const Pagination = (pagination: Pagination) => {
+
+const Pagination = (pagination: PaginationDto) => {
 
     const {totalPages, currentPage, onPageChange} = pagination 
 
