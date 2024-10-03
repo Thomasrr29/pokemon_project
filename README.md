@@ -58,7 +58,6 @@ Esto creará una versión optimizada de la aplicación en el directorio `build/`
 ⚡
 
 **LINK PROYECTO DESPLEGADO:** 
-
-https://pokemon-project-99xou0cfv-thomas-projects-f6a91d8b.vercel.app/pokemon/persian
-
+[Deploy
+](https://pokemon-project-99xou0cfv-thomas-projects-f6a91d8b.vercel.app/)
 </aside>
