@@ -1,3 +1,6 @@
+## Link documentación 
+[documentación](https://versed-ketchup-636.notion.site/PROYECTO-POKEMON-WORLD-10e8c3fd759a80f1953af12632d0bcd7)
+
 ## Requisitos Previos
 
 Antes de comenzar, asegúrate de tener instalado:
