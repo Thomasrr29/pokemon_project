@@ -26,9 +26,9 @@ const ThemeComponent = () => {
 
 
     return (
-        <div className="px-4 py-2 w-20 mr-10">
+        <div className="px-2 py-2 w-20 mr-10">
             <button 
-            className={`font-bold py-1 px-4 rounded-xl ${theme === 'dark' ? 
+            className={`font-bold py-1 px-2 rounded-xl ${theme === 'dark' ? 
                 'bg-white-brown text-dark-brown':
                 'bg-dark-brown text-white-brown'
             }`}
