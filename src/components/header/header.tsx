@@ -16,9 +16,10 @@ const HeaderComponent = () => {
 
                 <div className="flex gap-10">
                     <Link to={'/pokemons'}>
-                        <a href=""
+                        <div
                             className="font-bold dark:text-light-brown text-dark-brown text-xs hover:bg-light-brown dark:hover:bg-white-brown 
-                                py-2 px-2 rounded-2xl font-press-start mx-6 sm:text-sm lg:text-lg">Pokemones</a>
+                                py-2 px-2 rounded-2xl font-press-start mx-6 sm:text-sm lg:text-lg">Pokemones
+                        </div>
                     </Link>
                 </div>
                 <ThemeComponent></ThemeComponent>

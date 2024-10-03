@@ -10,7 +10,7 @@ interface Stat {
 
 const StatsGraphicsComponent = ({stats}: {stats: any}) => {
 
-    console.log(stats)
+    /*Recopilar las estadisticas del pokemon seleccionado en la sección de información general */
     return (
         <div className="w-screen sm:w-screen lg:w-screen bg-light-brown px-8 gap-3 h-full py-2" >
             {
