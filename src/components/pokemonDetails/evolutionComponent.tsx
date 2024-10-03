@@ -82,10 +82,10 @@ const EvolutionPokemonComponent = ({urlChain, onMajorEvolutionChange}: {urlChain
        
     return (
 
-        <div className="bg-dark-brown py-20">
+        <div className="dark:bg-dark-brown bg-white-brown py-20">
             <p className="text-4xl font-bold font-press-start 
-            text-dark-brown dark:text-white-brown pt-2">Evolutions: </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-10 py-10">
+            text-dark-brown dark:text-white-brown pt-4">Evolutions: </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-content-center gap-10 py-10 px-4">
                 {
                     evolutionsPokemons.map((evolution) => (
                         <div key={evolution.name} className="rounded py-6 px-4 bg-light-brown w-full h-full cursor-pointer">

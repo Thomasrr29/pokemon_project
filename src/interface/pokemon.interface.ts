@@ -30,4 +30,5 @@ export interface PokemonDetailsDto {
     weight: number,
     height: number
     specie: any,
+    stats: []
 } 

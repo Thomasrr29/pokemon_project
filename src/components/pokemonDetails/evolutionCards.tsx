@@ -100,7 +100,7 @@ const EvolutionCardsComponent  = ({lastEvolutionsNames}: evolution) => {
                         <h2 className="text-white-brown text-2xl font-bold font-press-start my-8 py-2 
                         bg-medium-brown">{evolutionName}</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 
-                        lg:grid-cols-3 gap-6">
+                        lg:grid-cols-3 gap-6 place-content-center justify-center">
                             {cards.map((card) => (
                                 <div key={card.id}
                                     className="bg-light-brown rounded py-4 px-4 md:px-6 pokemon-card 
