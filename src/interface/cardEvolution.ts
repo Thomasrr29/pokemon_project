@@ -8,7 +8,6 @@ export interface cardEvolutionMajor {
 
 }
 
-
 interface CardData {
     id: string;
     name: string;

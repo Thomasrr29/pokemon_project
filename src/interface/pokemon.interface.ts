@@ -10,6 +10,11 @@ export interface PokemonEvolutions {
 }
 
 
+export interface evolution {
+    lastEvolutionsNames: string[]
+}
+
+
 export interface ImagePokemon {
     images: string[] | undefined
 }
