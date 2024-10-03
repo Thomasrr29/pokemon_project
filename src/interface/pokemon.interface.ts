@@ -2,10 +2,11 @@
 export interface PokemonEvolutions {
     name: string,
     generation: string,
-    habitat: string,
+    habitat: string | undefined,
     gender_diferences: boolean,
     mythical: boolean,
     legendary: boolean
+    isFinalEvolution: boolean,
 }
 
 
@@ -29,4 +30,5 @@ export interface PokemonDetailsDto {
     weight: number,
     height: number
     specie: any,
+    stats: []
 } 

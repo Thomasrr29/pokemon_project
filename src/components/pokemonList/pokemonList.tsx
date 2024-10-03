@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { Pokemon } from "../../interface/pokemons.info.interface"
 
 
-const PokemonList = () => {
+const PokemonList = ({pokemon}: {pokemon: Pokemon[]}) => {
 
 
     const [pokemonData, setPokemonData] = useState<Pokemon[]>([])
@@ -47,7 +47,7 @@ const PokemonList = () => {
                 pokemonDaticos = {
                     name: pokemon.name,
                     img: detailsPokemon.img,
-                    types: detailsPokemon.type,
+                    types: detailsPokemon.types,
                     url: pokemon.url
                 }
 
@@ -82,36 +82,41 @@ const PokemonList = () => {
     }
 
     useEffect(() => {
-
-        getPokemonsList()
-
-    }, [BASE_URL_ALL_POKEMON])
+        if (pokemon.length > 0) {
+            console.log(pokemon)
+          setPokemonData(pokemon);
+          setTotalPokemons(pokemon.length);
+        } else {
+          getPokemonsList();
+        }
+      }, [pokemon, currentPage]);
 
 
     return (
         <div> 
-                <section className="w-full grid grid-cols-1 px-10 py-6 bg-light-brown gap-y-10 md:grid-cols-2 md:py-10 lg:grid-cols-3 lg:py-20 place-items-center">
+            <section className="w-full grid grid-cols-1 px-10 py-6 bg-light-brown gap-y-10 md:grid-cols-2 md:py-10 lg:grid-cols-3 lg:py-20 place-items-center">
                 { pokemonData?
                     (pokemonData.map(pokemon => (
-                            <div className="flex flex-col bg-dark-brown rounded-xl w-80 px-6 py-4 
-                                cursor-pointer hover:shadow-xl hover:shadow-white-brown transition-all 
-                                duration-300 ease-in-out"
+                            <div className="flex flex-col bg-white-brown dark:bg-dark-brown rounded-xl w-80 px-6 py-4 
+                                cursor-pointer pokemon-card"
                                 pokemon-name={pokemon.name} 
                                 key={pokemon.name}
                                 onClick={redirectToDetails}
                             > 
                                 <div>
                                     <img
-                                    className="w-80 rounded bg-white-brown" 
+                                    className="w-80 rounded bg-medium-brown" 
                                     src={pokemon.img} alt="" />
                                 </div>
                                 <div className="my-4 mx-4">
-                                    <p className="text-2xl font-nanum text-white-brown">{pokemon.name}</p>
+                                    <p className="text-2xl font-nanum 
+                                    dark:text-white-brown text-dark-brown">{pokemon.name}</p>
                                     <div className="flex gap-4 items-center py-4">
                                     {
                                         pokemon.types.map(type => (
                                             <p key={type}
-                                            className="bg-medium-brown py-1 px-4 rounded-xl text-white-brown font-nanum">
+                                            className="bg-medium-brown py-1 px-4 
+                                            rounded-xl text-white-brown font-nanum font-semibold">
                                                 {type}
                                             </p>
                                         ))
