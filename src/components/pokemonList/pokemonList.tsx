@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { Pokemon } from "../../interface/pokemons.info.interface"
 
 
-const PokemonList = () => {
+const PokemonList = ({pokemon}: {pokemon: Pokemon[]}) => {
 
 
     const [pokemonData, setPokemonData] = useState<Pokemon[]>([])
@@ -47,7 +47,7 @@ const PokemonList = () => {
                 pokemonDaticos = {
                     name: pokemon.name,
                     img: detailsPokemon.img,
-                    types: detailsPokemon.type,
+                    types: detailsPokemon.types,
                     url: pokemon.url
                 }
 
@@ -82,15 +82,19 @@ const PokemonList = () => {
     }
 
     useEffect(() => {
-
-        getPokemonsList()
-
-    }, [BASE_URL_ALL_POKEMON])
+        if (pokemon.length > 0) {
+            console.log(pokemon)
+          setPokemonData(pokemon);
+          setTotalPokemons(pokemon.length);
+        } else {
+          getPokemonsList();
+        }
+      }, [pokemon, currentPage]);
 
 
     return (
         <div> 
-                <section className="w-full grid grid-cols-1 px-10 py-6 bg-light-brown gap-y-10 md:grid-cols-2 md:py-10 lg:grid-cols-3 lg:py-20 place-items-center">
+            <section className="w-full grid grid-cols-1 px-10 py-6 bg-light-brown gap-y-10 md:grid-cols-2 md:py-10 lg:grid-cols-3 lg:py-20 place-items-center">
                 { pokemonData?
                     (pokemonData.map(pokemon => (
                             <div className="flex flex-col bg-white-brown dark:bg-dark-brown rounded-xl w-80 px-6 py-4 

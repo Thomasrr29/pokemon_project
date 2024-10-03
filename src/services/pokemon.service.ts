@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { PokemonDetailsDto } from '../interface/pokemon.interface'
+import { Pokemon } from '../interface/pokemons.info.interface'
 
-export const getDetailsPokemonTypeAndUrl = async (url: string) => {
+export const getDetailsPokemonTypeAndUrl = async (url: string): Promise<Pokemon> => {
 
     const detailsPokemon = await axios.get(url)
     let types: string[] = []
@@ -14,7 +15,8 @@ export const getDetailsPokemonTypeAndUrl = async (url: string) => {
     return {
         name: detailsPokemon.data.name,
         img: detailsPokemon.data.sprites.front_default,
-        type: types
+        types: types,
+        url: detailsPokemon.data.url
     }
     
 }
@@ -49,6 +51,7 @@ export const getDetailsPokemon = async (url: string): Promise<PokemonDetailsDto>
         stats: detailsPokemon.data.stats,
     }
 }
+
 
 function extractImagesDetailsPokemon(object: any): string[]{
 
