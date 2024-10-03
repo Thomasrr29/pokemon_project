@@ -46,6 +46,7 @@ export const getDetailsPokemon = async (url: string): Promise<PokemonDetailsDto>
         images: images,
         specie: specie.data.evolution_chain.url,
         types,
+        stats: detailsPokemon.data.stats,
     }
 }
 

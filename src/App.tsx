@@ -1,11 +1,9 @@
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import './App.css';
-import HeaderComponent from './components/header';
+import HeaderComponent from './components/header/header';
 import PokemonDetailsPage from './pages/pokemonDetailsPage';
 import PokemonList from './components/pokemonList/pokemonList';
 import WelcomeComponent from './components/welcome/welcomeComponent';
-
-
 
 function App() {
   return (

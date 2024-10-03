@@ -5,7 +5,7 @@ const GeneralInfoPokemonComponent = (infoPokemon: InfoPokemon) => {
     const {types, weight, height} = infoPokemon
 
     return (
-        <div>
+        <div className="w-screen sm:w-screen lg:w-screen h-full">
             <div className="bg-light-brown py-8 flex justify-center gap-10">
                 <div className="bg-medium-brown rounded py-4 px-3 w-1/4 
                 hover:bg-dark-brown cursor-pointer dark:bg-dark-brown" >

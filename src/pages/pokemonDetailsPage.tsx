@@ -6,6 +6,7 @@ import ImagePokemonComponent from "../components/pokemonDetails/imagePokemon"
 import GeneralInfoPokemonComponent from "../components/pokemonDetails/infoGeneral"
 import EvolutionPokemonComponent from "../components/pokemonDetails/evolutionComponent"
 import EvolutionCardsComponent from "../components/pokemonDetails/evolutionCards"
+import StatsGraphicsComponent from "../components/pokemonDetails/statsGraphic"
 
 
 const PokemonDetailsPage = () => {
@@ -82,15 +83,21 @@ const PokemonDetailsPage = () => {
 
                         <ImagePokemonComponent 
                         images={pokemonInfo.images}></ImagePokemonComponent>
-                        <GeneralInfoPokemonComponent 
-                        types={pokemonInfo.types} 
-                        weight={pokemonInfo.weight} 
-                        height={pokemonInfo.height}></GeneralInfoPokemonComponent>
+
+                        <div className="flex flex-col sm:flex-row lg:flex-row w-screen">
+                            <GeneralInfoPokemonComponent 
+                            types={pokemonInfo.types} 
+                            weight={pokemonInfo.weight} 
+                            height={pokemonInfo.height}></GeneralInfoPokemonComponent>
+                            <StatsGraphicsComponent stats={pokemonInfo.stats}></StatsGraphicsComponent>
+                        </div>
+                       
                         <EvolutionPokemonComponent 
                         urlChain={pokemonInfo.specie}
                         onMajorEvolutionChange={handleMajorEvolutionChange}></EvolutionPokemonComponent>
                         <EvolutionCardsComponent 
                         lastEvolutionsNames={majorEvolution}></EvolutionCardsComponent>
+
                         
                     </div>
                 </section>  
