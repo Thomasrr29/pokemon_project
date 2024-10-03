@@ -43,7 +43,8 @@ const SearchComponent = ({ onSearchResults }: SearchComponentProps) => {
             value={pokemonName}
             onChange={(e) => setPokemonName(e.target.value)}
             placeholder="Nombre del Pokémon"
-            className="py-2 px-4 rounded bg-white-brown text-dark-brown"
+            className="py-2 px-4 rounded bg-white-brown text-dark-brown
+            placeholder-dark-brown focus:border-blue-500 focus:outline-none"
           />
           <button 
             type="submit"

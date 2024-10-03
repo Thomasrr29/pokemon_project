@@ -4,6 +4,9 @@ const GeneralInfoPokemonComponent = (infoPokemon: InfoPokemon) => {
     
     const {types, weight, height} = infoPokemon
 
+
+    /*Mostrar la información tipo, peso y altura en la debajo de las imagenes y junto a la grafica de estadisticas */
+
     return (
         <div className="w-screen sm:w-screen lg:w-screen h-full">
             <div className="bg-light-brown py-8 flex justify-center gap-10">

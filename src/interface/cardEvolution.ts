@@ -7,3 +7,20 @@ export interface cardEvolutionMajor {
     images: any,
 
 }
+
+
+interface CardData {
+    id: string;
+    name: string;
+    number: string;
+    supertype: string;
+    types: string[];
+    images: {
+      small: string;
+      large: string;
+    };
+  }
+
+export interface CardsEvolution {
+    [evolutionName: string]: CardData[];
+  }

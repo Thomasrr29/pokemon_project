@@ -24,7 +24,8 @@ const PokemonList = ({pokemon}: {pokemon: Pokemon[]}) => {
     const getPokemonsList = async () => {
 
         try {
-        
+            
+            /*Obtener todos los Pokemones */
             const response = await axios.get(`${BASE_URL_ALL_POKEMON}`)
 
             setTotalPokemons(response.data.count)
@@ -43,7 +44,7 @@ const PokemonList = ({pokemon}: {pokemon: Pokemon[]}) => {
             for(let pokemon of pokemonData){
 
                 const detailsPokemon = await getDetailsPokemonTypeAndUrl(pokemon.url)
-                
+                /*Organizar y recopilar los datos necesarios */
                 pokemonDaticos = {
                     name: pokemon.name,
                     img: detailsPokemon.img,
@@ -55,6 +56,7 @@ const PokemonList = ({pokemon}: {pokemon: Pokemon[]}) => {
 
             }
 
+            /*Asignar los nuevos Pokemones recopilados */
             setPokemonData(pokemonsDataForShow)
 
         } catch(error){
@@ -65,6 +67,8 @@ const PokemonList = ({pokemon}: {pokemon: Pokemon[]}) => {
 
     const navigate = useNavigate()
 
+    /*Cuando se haga click en algun pokemon redirigir a el formato detalle del Pokemon seleccionado 
+    pasando el name como parametro que va a ser usado en las busquedas del componente detailsPokemon*/
     const redirectToDetails = async (event: React.MouseEvent<HTMLElement>) => {
 
         const name = event.currentTarget.getAttribute('pokemon-name')
@@ -77,16 +81,25 @@ const PokemonList = ({pokemon}: {pokemon: Pokemon[]}) => {
 
     }
 
+    /*De paginationComponent enviamos el cambio de pagina, recibimos 
+    en el padre en la page y ahora lo manejamos aquí para cambiar el valor*/
     const handlePageChange = (newPage: number) => {
         setCurrentPage(newPage)
     }
 
     useEffect(() => {
+
+        //Verificar que el Pokemon recibido de searchComponent haya sido encontrado
         if (pokemon.length > 0) {
-            console.log(pokemon)
+
+        /*Si el pokemon de search component fue encontrado asignar 
+        este como valor para renderizarlo */
           setPokemonData(pokemon);
           setTotalPokemons(pokemon.length);
+
         } else {
+
+        /*Si no se hace la busqueda mostrar todos los pokemones */
           getPokemonsList();
         }
       }, [pokemon, currentPage]);
@@ -130,7 +143,7 @@ const PokemonList = ({pokemon}: {pokemon: Pokemon[]}) => {
                 }  
              </section>
             {
-                totalPages > 1 ?
+                totalPages >= 1 ?
                     <Pagination
                         totalPages={totalPages}
                         currentPage={currentPage}

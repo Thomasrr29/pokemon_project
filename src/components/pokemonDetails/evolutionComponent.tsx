@@ -45,6 +45,8 @@ const EvolutionPokemonComponent = ({urlChain, onMajorEvolutionChange}: {urlChain
 
     const getEvolutionChain = async (url:string) => {
         const getEvolutionPokemonData = await axios.get(url)
+
+        /*Obtener la información de la cadena evolutiva del pokemon */
         const chain = getEvolutionPokemonData.data.chain
 
         const enterToTheNextEvolution = async (evolution: any) => {
@@ -55,9 +57,12 @@ const EvolutionPokemonComponent = ({urlChain, onMajorEvolutionChange}: {urlChain
                 const specie = specieEvolutionPokemonData.data
 
                 if(evolution.evolves_to.length === 0){
+                    /*Si el array tiene una longitud de 0 significa que es una evolución final 
+                    así que lo asignamos al array */
                     lastEvolutionsNames.push(specie.name)
                 }
 
+                    /*Registrar la evolución para mostrar en la sección de evoluciones del detalle del pokemon */
                     evolutions.push({
                         name: specie.name || 'unknown', 
                         gender_diferences: specie.has_gender_differences || false,
@@ -69,6 +74,8 @@ const EvolutionPokemonComponent = ({urlChain, onMajorEvolutionChange}: {urlChain
                     })
     
                     for (const nextEvolution of evolution.evolves_to){
+
+                        /*Si la evolución cuenta con más evoluciones entrar a la siguiente */
                         await enterToTheNextEvolution(nextEvolution)
                     }
             }
