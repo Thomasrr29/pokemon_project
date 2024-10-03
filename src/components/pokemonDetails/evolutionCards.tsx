@@ -1,10 +1,7 @@
 import axios from "axios"
 import { useEffect, useRef, useState } from "react";
 import { cardEvolutionMajor, CardsEvolution } from "../../interface/cardEvolution";
-
-interface evolution {
-    lastEvolutionsNames: string[]
-}
+import { evolution } from "../../interface/pokemon.interface";
 
 const EvolutionCardsComponent  = ({lastEvolutionsNames}: evolution) => {
 

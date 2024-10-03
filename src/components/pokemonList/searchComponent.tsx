@@ -1,12 +1,9 @@
 import { useState } from "react"
 import { getDetailsPokemonTypeAndUrl } from "../../services/pokemon.service";
 import { Pokemon } from "../../interface/pokemons.info.interface";
+import { SearchComponentProps } from "../../interface/searchInterface";
 
 
-
-interface SearchComponentProps {
-    onSearchResults: (results: any[]) => void;
-}
 
 const SearchComponent = ({ onSearchResults }: SearchComponentProps) => {
     const [pokemonName, setPokemonName] = useState<string>('');
