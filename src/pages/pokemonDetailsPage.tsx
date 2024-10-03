@@ -35,6 +35,8 @@ const PokemonDetailsPage = () => {
                 setIsLoading(true)
                 setError(null)
 
+
+                /*Buscar todos los detalles del pokemon por medio de su nombre */
                 const [pokemonDetails] = await Promise.all([
                     getDetailsPokemon(`${BASE_POKEMON_DETAILS}/${name}`)
                 ])
@@ -42,7 +44,8 @@ const PokemonDetailsPage = () => {
                 if(!pokemonDetails){
                     throw new Error(`ISSUE GETTING THE POKEMON DETAILS, please try again`)
                 }
-        
+                
+                /*Asignar la información obtenido al estado para repartir a los componentes hijos */
                 setPokemonInfo(pokemonDetails)
             
             } catch(error){
@@ -57,6 +60,12 @@ const PokemonDetailsPage = () => {
       
     }, [name])
 
+
+    /* Creamos esta función para recibir el valor de las máximas evoluciones del componente 
+    EvolutionPokemonComponent y pasarle el valor a EvolutionCardsComponent 
+    */
+
+    /*⚠️Evaluar el beneficio de useCallback  */
     const handleMajorEvolutionChange = useCallback((lastEvolutionsNames: string[]) => {
         setMajorEvolution(lastEvolutionsNames)
     }, [])
