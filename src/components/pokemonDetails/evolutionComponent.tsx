@@ -2,13 +2,15 @@ import axios from "axios"
 import { useEffect, useRef, useState } from "react"
 import { PokemonEvolutions } from "../../interface/pokemon.interface"
 
-const EvolutionPokemonComponent = ({urlChain, onMajorEvolutionChange}: {urlChain: string, onMajorEvolutionChange: (evolution: string) => void}) => {
+const EvolutionPokemonComponent = ({urlChain, onMajorEvolutionChange}: {urlChain: string, onMajorEvolutionChange: (lastEvolutionsNames: string[]) => void}) => {
 
 
     let evolutions: PokemonEvolutions[] = []
 
+    let lastEvolutionsNames: string[] = []
+
     const [evolutionsPokemons, setEvolutionsPokemons] = useState<PokemonEvolutions[]>([]) 
-    const [majorEvolution, setMajorEvolution] = useState<string>('')
+    const [majorEvolution, setMajorEvolution] = useState<string[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const dataFetchedRef = useRef(false)
 
@@ -24,10 +26,9 @@ const EvolutionPokemonComponent = ({urlChain, onMajorEvolutionChange}: {urlChain
                 const evolutionsPokemon = await getEvolutionChain(urlChain)
 
                 if(evolutions.length > 0){
-                    let lastEvolutionName = evolutions[evolutions.length - 1].name
-                    setMajorEvolution(lastEvolutionName)
-                    onMajorEvolutionChange(lastEvolutionName)
-                }
+                    setMajorEvolution(lastEvolutionsNames)
+                    onMajorEvolutionChange(lastEvolutionsNames)
+                } 
                 setEvolutionsPokemons(evolutionsPokemon)
             } catch(error){
                 throw new Error(`Error ${error}`)
@@ -43,7 +44,6 @@ const EvolutionPokemonComponent = ({urlChain, onMajorEvolutionChange}: {urlChain
 
 
     const getEvolutionChain = async (url:string) => {
-
         const getEvolutionPokemonData = await axios.get(url)
         const chain = getEvolutionPokemonData.data.chain
 
@@ -54,15 +54,18 @@ const EvolutionPokemonComponent = ({urlChain, onMajorEvolutionChange}: {urlChain
                 const specieEvolutionPokemonData = await axios.get(urlSpeciePokemon)
                 const specie = specieEvolutionPokemonData.data
 
-
+                if(evolution.evolves_to.length === 0){
+                    lastEvolutionsNames.push(specie.name)
+                }
 
                     evolutions.push({
-                        name: specie.name,
-                        gender_diferences: specie.has_gender_differences,
-                        legendary: specie.is_legendary,
-                        mythical: specie.is_mythical,
-                        habitat: specie.habitat.name,
-                        generation: specie.generation.name
+                        name: specie.name || 'unknown', 
+                        gender_diferences: specie.has_gender_differences || false,
+                        legendary: specie.is_legendary || false,
+                        mythical: specie.is_mythical || false,
+                        habitat: specie.habitat?.name || 'unknown',
+                        generation: specie.generation?.name || 'unknown',
+                        isFinalEvolution: evolution.evolves_to.length === 0
                     })
     
                     for (const nextEvolution of evolution.evolves_to){
@@ -72,7 +75,6 @@ const EvolutionPokemonComponent = ({urlChain, onMajorEvolutionChange}: {urlChain
             
         }
 
-        
         await enterToTheNextEvolution(chain)
         return evolutions
 
@@ -80,40 +82,34 @@ const EvolutionPokemonComponent = ({urlChain, onMajorEvolutionChange}: {urlChain
        
     return (
 
-        <div className="bg-medium-brown py-10 md:py-20 px-4 md:px-8">
-            <p className="text-2xl md:text-3xl lg:text-4xl font-bold font-press-start text-center mb-6 md:mb-10">Evoluciones: </p>
-            <div className="flex flex-col md:flex-row md:flex-wrap justify-center gap-6 md:gap-8 lg:gap-10">
-                {evolutionsPokemons.map((evolution) => (
-                    <div key={evolution.name} 
-                        className="rounded py-4 md:py-6 px-4 bg-light-brown w-full md:w-2/5 lg:w-1/4 
-                                    hover:bg-white-brown cursor-pointer transition duration-300 ease-in-out">
-                        <p className="font-press-start text-lg md:text-xl lg:text-2xl py-3 md:py-4 text-center">
-                            {evolution.name.toUpperCase()}
-                        </p>
-                        <div className="space-y-2 md:space-y-3">
-                            <div>
-                                <label className="font-nanum text-lg md:text-xl font-bold text-dark-brown block">Habitat: </label>
-                                <p className="font-nanum font-semibold">{evolution.habitat}</p>
-                            </div>
-                            <div>
-                                <label className="font-nanum text-lg md:text-xl font-bold text-dark-brown block">Generación: </label>
-                                <p className="font-nanum font-semibold">{evolution.generation}</p>
-                            </div>
-                            <div>
-                                <label className="font-nanum text-lg md:text-xl font-bold text-dark-brown block">Diferencias género: </label>
-                                <p className="font-nanum font-semibold">{evolution.gender_diferences.toString()}</p>
-                            </div>
-                            <div>
-                                <label className="font-nanum text-lg md:text-xl font-bold text-dark-brown block">Mítico: </label>
-                                <p className="font-nanum font-semibold">{evolution.mythical.toString()}</p>
-                            </div>
-                            <div>
-                                <label className="font-nanum text-lg md:text-xl font-bold text-dark-brown block">Legendario: </label>
-                                <p className="font-nanum font-semibold">{evolution.legendary.toString()}</p>
-                            </div>
+        <div className="bg-dark-brown py-20">
+            <p className="text-4xl font-bold font-press-start 
+            text-dark-brown dark:text-white-brown pt-2">Evolutions: </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-10 py-10">
+                {
+                    evolutionsPokemons.map((evolution) => (
+                        <div key={evolution.name} className="rounded py-6 px-4 bg-light-brown w-full h-full cursor-pointer">
+                            <p className="text-dark-brown font-press-start text-2xl py-6">{evolution.name.toUpperCase()}</p>
+                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Habitat: </label>
+                            <p className="font-nanum font-bold text-white-brown">{evolution.habitat}</p>
+                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Generation: </label>
+                            <p className="font-nanum font-bold text-white-brown">{evolution.generation}</p>
+                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Gender Differences: </label>
+                            <p className="font-nanum font-bold text-white-brown">{evolution.gender_diferences.toString()}</p>
+                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Mythic: </label>
+                            <p className="font-nanum font-bold text-white-brown">{evolution.mythical.toString()}</p>
+                            <label htmlFor="" className="font-nanum text-2xl font-bold text-dark-brown">Legendary: </label>
+                            <p className="font-nanum font-bold text-white-brown" >{evolution.legendary.toString()}</p>
+                            {evolution.isFinalEvolution && (
+                                <p className="rounded-full px-4 py-2 inline-block 
+                                font-press-start font-bold text-white-brown mt-4
+                                transform hover:scale-105 transition-transform duration-300
+                                shadow-lg hover:shadow-xl bg-medium-brown">Final Evolution</p>
+                            )}
                         </div>
-                    </div>
-                ))}
+                    ))
+                }
+
             </div>
         </div>
         

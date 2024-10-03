@@ -14,7 +14,7 @@ const PokemonDetailsPage = () => {
 
     const {name} = useParams<{name: string}>()
 
-    const [majorEvolution, setMajorEvolution] = useState<string>('')
+    const [majorEvolution, setMajorEvolution] = useState<string[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [pokemonInfo, setPokemonInfo] = useState<PokemonDetailsDto | null>(null)
     const [error, setError] = useState<string | null>(null)
@@ -56,8 +56,8 @@ const PokemonDetailsPage = () => {
       
     }, [name])
 
-    const hangleMajorEvolutionChange = useCallback((evolution: string) => {
-        setMajorEvolution(evolution)
+    const handleMajorEvolutionChange = useCallback((lastEvolutionsNames: string[]) => {
+        setMajorEvolution(lastEvolutionsNames)
     }, [])
 
     if(!pokemonInfo){
@@ -75,10 +75,10 @@ const PokemonDetailsPage = () => {
 
     return (
         <div className="w-full flex flex-col">         
-                <section className="w-full py-20 bg-white-brown">
+                <section className="w-full py-20 bg-light-brown dark:bg-medium-brown">
                     <div className="w-full justify-center text-center">
                         <h2 className="text-center font-bold font-press-start
-                        text-5xl my-10">{pokemonInfo.name}</h2>
+                        text-5xl my-10 dark:text-white-brown text-dark-brown">{pokemonInfo.name}</h2>
 
                         <ImagePokemonComponent 
                         images={pokemonInfo.images}></ImagePokemonComponent>
@@ -88,9 +88,9 @@ const PokemonDetailsPage = () => {
                         height={pokemonInfo.height}></GeneralInfoPokemonComponent>
                         <EvolutionPokemonComponent 
                         urlChain={pokemonInfo.specie}
-                        onMajorEvolutionChange={hangleMajorEvolutionChange}></EvolutionPokemonComponent>
+                        onMajorEvolutionChange={handleMajorEvolutionChange}></EvolutionPokemonComponent>
                         <EvolutionCardsComponent 
-                        evolution={majorEvolution}></EvolutionCardsComponent>
+                        lastEvolutionsNames={majorEvolution}></EvolutionCardsComponent>
                         
                     </div>
                 </section>  
